@@ -65,6 +65,6 @@ def bulls_and_cows():
             if game_repeat == 'Да':
                 bulls_and_cows()
             if game_repeat == 'Нет':
-                cprint(f'До встречи', color='magenta')
+                cprint(f'До встречи!', color='magenta')
                 break
 bulls_and_cows()
