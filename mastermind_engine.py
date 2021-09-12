@@ -14,7 +14,7 @@ def wishing_number():
             str_wish_number[1] == str_wish_number[3] or str_wish_number[2] == str_wish_number[3]:
         wish_number = randint(1000, 10000)
         str_wish_number = str(wish_number)
-    print(wish_number)
+    # print(wish_number)
     # print(str_wish_number)
 
 

@@ -48,12 +48,22 @@
 from termcolor import cprint, colored
 from mastermind_engine import wishing_number, comparing_numbers, gameover
 
-wishing_number()
-user_number = input(colored('Введите четырехзначное число c неповторяющимися цифрами ', color='red'))
-number_of_steps = 0
-while True:
-    step_game = comparing_numbers(user_number)
-    user_number = input(colored(f"Попробуй еще раз ", color='white'))
-    number_of_steps += 1
-    if gameover():
-        break
+def bulls_and_cows():
+    wishing_number()
+    user_number = input(colored('Введите четырехзначное число c неповторяющимися цифрами ', color='red'))
+    quantity_of_steps = 0
+    while True:
+        step_game = comparing_numbers(user_number)
+        if not gameover():
+            user_number = input(colored(f"Попробуй еще раз ", color='white'))
+            quantity_of_steps += 1
+        if gameover():
+            quantity_of_steps += 1
+            cprint(f'Вы угадали число за {quantity_of_steps} ходов', color='red')
+            cprint(f'Хотите ебануть еще раз? Да/Нет', color='magenta')
+            game_repeat = input()
+            if game_repeat == 'Да':
+                bulls_and_cows()
+            if game_repeat == 'Нет':
+                break
+bulls_and_cows()
